@@ -2,10 +2,12 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const venderdetails = new mongoose.Schema({
-    vendor_id: Number,
-    vendor_name: String,
+   vendor_email :String,
+    vendor_service: String,
     vendor_location: String,
-    vendor_contact: Number,
+    vendor_contact: String,
+    vendor_cname: String,
+    vendor_pincode: String,
     vendor_password: String,
     doj: String
 });

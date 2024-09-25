@@ -5,19 +5,16 @@ const app = express();
 const commonMiddleware = require('./middleware/commonMid')
 dotenv.config();
 const PORT = process.env.PORT;
-const newUserRoute = require('./routes/newUser')
-const newVedor= require('./routes/vendor')
+const userRoute = require('./routes/user')
+const vendorRoute= require('./routes/vendor')
 const connectDB=require('./db')
 
 commonMiddleware(app);
 
-// app.use('/user', require('./routes/userauth'))
-app.use('/newUser', newUserRoute);
-app.use('/vendor', newVedor);
+app.use('/user', userRoute);
+app.use('/vendor', vendorRoute);
 
 connectDB()
-
-
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
