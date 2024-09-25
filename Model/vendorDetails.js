@@ -32,5 +32,7 @@ venderdetails.pre('save', async function (next) {
 });
 
 const VendorDetails = mongoose.model('VendorDetails', venderdetails);
+const VendorDetails = mongoose.model('VendorDetails', venderdetails);
 
+module.exports = VendorDetails;
 module.exports = VendorDetails;
