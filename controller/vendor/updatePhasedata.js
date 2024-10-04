@@ -9,6 +9,20 @@ const updatePhasedata = async (req, res) => {
     
     try {
         
+        if(phase == 0 && choice == true){
+            const updated = await VendorEvents.updateOne(
+                { _id: vendor_id },
+                { $set: { eventStatus : 1 } } 
+            );
+            res.status(200).json(updated); 
+        }else if (phase == 0 && choice == false){
+            const updated = await VendorEvents.updateOne(
+                { _id: vendor_id },
+                { $set: { eventStatus : 2 } } 
+            );
+            res.status(200).json(updated); 
+        }else{
+
         const updated = await VendorEvents.updateOne(
             { _id: vendor_id },
             { $set: { [`status.${phase}`]: choice } } 
@@ -16,7 +30,7 @@ const updatePhasedata = async (req, res) => {
         
         console.log(updated);
         res.status(200).json(updated); 
-        
+    }
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Something went wrong" });

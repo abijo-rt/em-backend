@@ -3,6 +3,7 @@ const VendorDetails =require('./vendorDetails')
 const Event=require('./eventSchema')
 
 const venderevents=new mongoose.Schema({
+    
     vendor:{
         type:mongoose.Schema.Types.ObjectId ,ref:'VendorDetails',required:true
     },
@@ -13,7 +14,17 @@ const venderevents=new mongoose.Schema({
     feedback : String ,
     billamount : String , 
     billpaid : String ,
-    eventStatus : Number
+    billamount_advance : String ,
+    eventStatus : Number,
+    billfilename :String,
+    billfile: [{
+        bill: String,
+        mode_of_payment: {
+            type: String,
+            enum: ['upi', 'card', 'cash'],
+            required: true
+        }
+    }]
     
 
 })
