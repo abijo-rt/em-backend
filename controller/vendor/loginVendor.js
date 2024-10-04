@@ -1,5 +1,5 @@
 const VendorDetails =require('../../Model/vendorDetails')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const vendorLogin = async (req , res) => {
