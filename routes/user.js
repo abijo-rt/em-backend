@@ -19,7 +19,10 @@ router.post('/loginuser',loginUser);
 router.post('/getUserDetails',getUserDetails);
 router.post('/newevent',newEvent);
 router.post('/eventList',eventList);
-router.post('/getEventVendorList',getEventVendorList);
+router.post('/getEventVendorList',getEventVendorList); 
+router.get('/test',(req,res)=>{
+    res.send('test')
+}); 
 
 
 module.exports = router;

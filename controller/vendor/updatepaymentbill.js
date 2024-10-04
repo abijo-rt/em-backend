@@ -30,7 +30,7 @@ const updatepaymentbill = async (req,res) =>{
             $set: {
                 billpaid : newpaidbill
             }
-    }
+        }
 
         const venderevents  = await  VendorEvents.updateOne( { _id : id } , filter)
         console.log(venderevents)
