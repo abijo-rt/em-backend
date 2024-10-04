@@ -7,10 +7,7 @@ const newEvent = require('../controller/newEvents');
 const eventList = require('../controller/user/eventList');
 const getEventVendorList = require('../controller/user/getEventVendorList');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 
-
-router.use(cors());
 router.use(bodyParser.json());
 router.use(express.urlencoded({ extended: true }));
 

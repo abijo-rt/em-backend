@@ -16,9 +16,7 @@ const updatepaymentbill = require('../controller/vendor/updatepaymentbill');
 
 const upload = require('./../multer')
 const bodyParser = require('body-parser');
-const cors = require('cors');
 
-router.use(cors());
 
 router.post('/upload',upload.single('file'),uploadfile);
 router.get('/download/:filename',downloadfile);

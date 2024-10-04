@@ -9,7 +9,10 @@ const userRoute = require('./routes/user')
 const vendorRoute = require('./routes/vendor')
 const connectDB = require('./db')
 
+const cors = require('cors');
 
+
+app.use(cors());
 
 
 // commonMiddleware(app);
