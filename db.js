@@ -1,7 +1,8 @@
 // db.js
 const mongoose = require('mongoose');
-
-const mongoURI = 'mongodb://localhost:27017/EventM'; // Replace with your MongoDB URI
+require('dotenv').config();
+// const mongoURI = 'mongodb://localhost:27017/EventM';
+const mongoURI = process.env.URI
 
 const options = {
   useNewUrlParser: true,
