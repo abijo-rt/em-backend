@@ -13,7 +13,15 @@ const eventSchema=new mongoose.Schema({
     EventType :String,
     LocOfEvent : String,
     VendorList : [String],
-    NoOfAttender : Number
+    FinalisedVendorList : [String],
+    NoOfAttender : Number,
+    requirement:Object,
+    userEventStatus : {
+        type: String,
+        enum: ['quatationPending', 'quatationsubmitted' , 'eventCompeted'],
+        required: true ,
+        default : 'quatationPending'
+    }
 })
 
 const Event = mongoose.model('Event',eventSchema)

@@ -13,13 +13,13 @@ const vendorLogin = async (req , res) => {
         console.log(user)
         if(!user){
             console.log("Invalid email or password")
-            return res.status(400).send("Invalid email or password");
+            return res.status(404).send("User not found");
         }
 
         const isMatch = await bcrypt.compare(password, user.vendor_password);
         if(!isMatch){
                 console.log("Invalid email or password")
-                return res.status(400).send("Invalid email or password");
+                return res.status(401).send("Invalid Password");
         }
 
         const token = jwt.sign(

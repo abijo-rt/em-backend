@@ -13,13 +13,13 @@ const vendorLogin = async (req , res) => {
         console.log(user)
         if(!user){
             console.log("Invalid email or password")
-            return res.status(400).send("Invalid email or password");
+            return res.status(404).json({ message: 'Username not found' });
         }
 
         
         if(!(password  === user.password)){
                 console.log("Invalid email or password")
-                return res.status(400).send("Invalid email or password");
+                return res.status(401).json({ message: 'Incorrect password' });
         }
 
         const token = jwt.sign(

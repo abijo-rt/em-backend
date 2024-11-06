@@ -1,6 +1,6 @@
 const VendorEvents = require('../../Model/vendorEventSchema')
 
-const updatepaymentbill = async (req,res) =>{
+const updatepaymentbill = async (req,res) => {
     // console.log(req.body)
     const { id , amountpaid , mode_of_payment } = req.body
 
@@ -9,26 +9,25 @@ const updatepaymentbill = async (req,res) =>{
    
     try {
 
-        const result = await VendorEvents.findOne(
-            { _id: id }, // Query filter
-            { billpaid: 1 } 
-          );
+        // const result = await VendorEvents.findOne(
+        //     { _id: id }, // Query filter
+        //     { billpaid: 1 } 
+        //   );
 
-          console.log(result)
+        //   console.log(result)
 
-        const newpaidbill = Number(result.billpaid) +  Number(amountpaid)
-        console.log(newpaidbill)
-
-
+        // const newpaidbill = Number(result.billpaid) +  Number(amountpaid)
+        // console.log(newpaidbill)
+        const todayDate = new Date().toISOString().split('T')[0];
+          console.log( " TODAY DATE === >>" ,  todayDate);
         filter = {
             $push: {
-              billfile: {
+              PaymentTable: {
                 bill: amountpaid ,
-                mode_of_payment: mode_of_payment
+                mode_of_payment: mode_of_payment,
+                date : todayDate,
+                status: 'pending'
               }
-            },
-            $set: {
-                billpaid : newpaidbill
             }
         }
 

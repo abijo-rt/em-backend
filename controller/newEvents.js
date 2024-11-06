@@ -7,7 +7,7 @@ const VendorEvents =  require('../Model/vendorEventSchema');
 const newEvent = async (req, res) => {
     try {
         console.log(req.body);
-        const { user, name, phone, evenType, doe, lOfEvent, vendorList } = req.body;
+        const { user, name, phone, evenType, doe, lOfEvent, vendorList , requirement} = req.body;
 
         const new_event = new Event({
             user: user,
@@ -17,11 +17,14 @@ const newEvent = async (req, res) => {
             status :false,
             LocOfEvent: lOfEvent,
             phone: phone,
-            VendorList: vendorList
+            VendorList: vendorList,
+            requirement : requirement
         });
 
         const savedEvent = await new_event.save();
             
+        console.log(savedEvent)
+
         await addvendetails(savedEvent)
 
         const save_event = await User.findById(user);
@@ -47,7 +50,7 @@ const newEvent = async (req, res) => {
 const addvendetails = (eventdata) => {
     
     eventdata.VendorList.forEach(async ven => {
-        console.log(ven)
+         console.log(eventdata.requirement)
         if (ven) {  // Ensure 'ven' is not null or undefined
             try {
                 const vendetails = new VendorEvents({
@@ -55,8 +58,11 @@ const addvendetails = (eventdata) => {
                     event: eventdata._id,
                     status: [false, false, false, false, false, false, false],
                     feedback: "",
-                    billamount: "0",
-                    eventStatus : 0
+                    billamount: 0,
+                    billpaid: 0,
+                    // eventStatus : 0,
+                    requirement : eventdata.requirement
+                    // quatationStatus:false
                 });
     
                 const savedVend = await vendetails.save();

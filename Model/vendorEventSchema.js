@@ -2,6 +2,9 @@ const mongoose=require('mongoose')
 const VendorDetails =require('./vendorDetails')
 const Event=require('./eventSchema')
 
+
+// const paymentdetails = new
+
 const venderevents=new mongoose.Schema({
     
     vendor:{
@@ -12,19 +15,21 @@ const venderevents=new mongoose.Schema({
     },
     status : [Boolean],
     feedback : String ,
-    billamount : String , 
-    billpaid : String ,
-    billamount_advance : String ,
-    eventStatus : Number,
+    billamount : Number , 
+    billpaid : Number ,
+
     billfilename :String,
-    billfile: [{
-        bill: String,
-        mode_of_payment: {
+    eventStatus : {
             type: String,
-            enum: ['upi', 'card', 'cash'],
-            required: true
-        }
-    }]
+            enum: ['quatationPending', 'quatationAccecpted', 'quatationRejected','quatationsubmitted', 'eventCompeted'],
+            required: true ,
+            default : 'quatationPending'
+        },
+    
+    requirementTable : [Object],
+    PaymentTable : [Object],
+
+    // quatationStatus:Boolean
     
 
 })

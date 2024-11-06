@@ -5,8 +5,8 @@ const VendorEvents =  require('../../Model/vendorEventSchema');
 
 const eventList = async  (req, res) => {
     
-    console.log("START>>>>>")
-    console.log(req.body)
+    // console.log("START>>>>>")
+    // console.log(req.body)
     const id = req.body.id
 
     try {
@@ -25,8 +25,8 @@ const eventList = async  (req, res) => {
             events: eventdata
         };
     
-        console.log("response ==>>>>");
-        console.log(response);
+        // console.log("response ==>>>>");
+        // console.log(response);
         res.status(200).send(response)
     
     } catch (error) {

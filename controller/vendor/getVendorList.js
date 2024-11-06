@@ -15,16 +15,16 @@ const getVendorList = async (req, res) => {
         }
        
             data.forEach(vendor => {
-                if (vendor.vendor_service === 'food')
+                if (vendor.vendor_service === 'Food')
                 {
                     vendorDetails.food.push(vendor);
-                } else if (vendor.vendor_service === 'decor')
+                } else if (vendor.vendor_service === 'Decor')
                 {
                     vendorDetails.decor.push(vendor);
-                } else if (vendor.vendor_service === 'entertain')
+                } else if (vendor.vendor_service === 'Entertainment')
                 {
                     vendorDetails.entertain.push(vendor);
-                } else if (vendor.vendor_service === 'venue')
+                } else if (vendor.vendor_service === 'Venue')
                 {
                     vendorDetails.venue.push(vendor);
                 }

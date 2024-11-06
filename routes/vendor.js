@@ -12,7 +12,10 @@ const uploadfile = require('../controller/vendor/uploadfile');
 const updatefilename = require('../controller/vendor/updatefilename');
 const updatebill = require('../controller/vendor/updatebill');
 const downloadfile = require('../controller/vendor/downloadfile');
-const updatepaymentbill = require('../controller/vendor/updatepaymentbill');
+
+const addreqtable = require('../controller/vendor/addreqtable');
+const givequatation = require('../controller/vendor/giveQuation');
+const update_payment_transaction = require('../controller/vendor/updatetransacation');
 
 const upload = require('./../multer')
 const bodyParser = require('body-parser');
@@ -33,7 +36,10 @@ router.post('/updatePhasedata',updatePhasedata);
 router.post('/updatefilename',updatefilename);
 router.get('/getEventListForVendorPage',getEventListForVendorPage);
 router.post('/updatebill',updatebill);
-router.post('/updatepaymentbill',updatepaymentbill);
+router.post('/update_payment_transaction',update_payment_transaction);
+
+router.post('/addreqtable',addreqtable);
+router.post('/giverequirementquatation',givequatation);
 
 
 

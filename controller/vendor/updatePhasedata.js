@@ -12,7 +12,10 @@ const updatePhasedata = async (req, res) => {
         if(phase == 0 && choice == true){
             const updated = await VendorEvents.updateOne(
                 { _id: vendor_id },
-                { $set: { eventStatus : 1 } } 
+                { $set: { eventStatus : 1 },
+                $set: { [`status.${phase}`]: choice } 
+             } ,
+                
             );
             res.status(200).json(updated); 
         }else if (phase == 0 && choice == false){
