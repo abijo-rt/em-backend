@@ -15,6 +15,7 @@ const update_payment_transaction = async (req,res) => {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     const amount = await VendorEvents.findById(_id);
     const incr_amount = amount.PaymentTable[index].bill
+    
     const update = await VendorEvents.findByIdAndUpdate(_id,{
      $set: { [`PaymentTable.${index}.status`]: 'complete' } ,
       $inc: { billpaid: incr_amount }     
